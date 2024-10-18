@@ -1,0 +1,130 @@
+<!-- src/main/resources/templates/upload.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PDF to EPUB Converter</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* Basic styling for the form */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://rjaytechnologies.com/wp-content/uploads/2024/08/RJ-Technology-Solutions-1.png'); /* Add your background image path here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent background for better readability */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center; /* Center text in container */
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s;
+            font-size: 16px; /* Increased font size for better readability */
+        }
+
+        input[type="file"]:focus {
+            border-color: #45a049;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            font-size: 30px; /* Adjust icon size */
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        /* Original social media colors */
+        .social-icons a.facebook {
+            color: #3b5998; /* Facebook blue */
+        }
+
+        .social-icons a.instagram {
+            color: #C13584; /* Instagram gradient color */
+        }
+
+        .social-icons a.linkedin {
+            color: #0077b5; /* LinkedIn blue */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Convert PDF to EPUB</h2>
+        <form method="POST" enctype="multipart/form-data" th:action="@{/convert}">
+            <div class="form-group">
+                <input type="file" name="file" accept="application/pdf" required />
+            </div>
+            <button type="submit">Convert</button>
+        </form>
+        <div class="message" th:text="${message}"></div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="fab fa-facebook-square facebook"></a>
+            <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram instagram"></a>
+            <a href="https://www.linkedin.com" target="_blank" class="fab fa-linkedin linkedin"></a>
+        </div>
+    </div>
+</body>
+</html>

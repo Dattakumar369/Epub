@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Converted XHTML</title>
+</head>
+<body>
+<page id="page-1">
+<p id="para-1">C H A P T E R  1 Computer Systems BASIC PROCESSOR ARCHITECTURE <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i> Every general purpose processor conceived since the Electronic Discrete</p>
+<computerCode xml:id="code-0001">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0001">
+<line id="line-0006"> <![CDATA[Variable Automatic Calculator (EDVAC) and Electronic Delay Storage]]></line>
+<line id="line-0007"> <![CDATA[Automatic Calculator (EDSAC) of the 1950s operates on the principle of]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-2">the basic fetch-execute cycle. A machine instruction is fetched from pro- gram memory, decoded, and then executed. This cycle is driven by a series of clock pulses and repeats ad infinitum, usually until the processor is pow- ered down. Memory is usually organized as a series of bytes or words and is accessed by address. The processor keeps track of the address of the next</p>
+<computerCode xml:id="code-0002">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0002">
+<line id="line-0013"> <![CDATA[instruction to be fetched in a register called the program counter (PC) or]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-3">instruction pointer. As the instruction is fetched, the PC is updated to point</p>
+<computerCode xml:id="code-0003">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0003">
+<line id="line-0015"> <![CDATA[to the next instruction; usually this is done by incrementing it by a fixed]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-2">
+<p id="para-4">amount. Some processors have variable length instructions making the update of the PC a little more complicated. Figure 1.1 illustrates the funda- mental components of a typical processor and program memory.//n Decoding of the instruction occurs when it enters the environment of the processor. In simple processors, the instruction is stored in a special register, called the current instruction register. The bits of the instruction are used to select a sequence of logical control signals that are issued in a carefully timed pattern to affect the state of the machine, effectively exe- cuting the instruction.//n This description is very general, and captures the basic functionality of all stored-program computers. Details vary depending on the spe- cific processor architecture. For example, some processors actually interpret the instructions by executing lower-level instructions, called T FIGURE 1.1 The basic components of a processor including memory.</p>
+<p id="para-5">microinstructions. These microinstructions achieve the necessary sequence of control signals required to emulate the machine language instruction in hardware.</p>
+<p id="para-6">In other processors the logic signals are derived directly from the bits of the instruction s operation code and sequenced via hardware circuits. Processors also vary in terms of their internal structure, such as the number of registers and arithmetic capabilities.//n COMPONENTS OF A COMPUTER SYSTEM <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i> Processors are usually described as a collection of functional units, and generally as part of a larger system. The general computer system consists of five</p>
+<computerCode xml:id="code-0004">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0004">
+<line id="line-0041"> <![CDATA[functional units, the control unit (CU), arithmetic logical unit (ALU), main]]></line>
+<line id="line-0042"> <![CDATA[memory, secondary storage, and input/output (I/O) devices. The CU and ALU]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-7">together comprise what has historically been called the central processing unit</p>
+<computerCode xml:id="code-0005">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0005">
+<line id="line-0044"> <![CDATA[(CPU).//n]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-3">
+<p id="para-8">Central Processing Unit The CPU is the focus of the computational activity of a computing system. This is where machine instructions are executed and calculations take place. The CPU of older computers was composed of distinct components, but modern computers generally have their CPU on a single chip, often</p>
+<computerCode xml:id="code-0006">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0006">
+<line id="line-0050"> <![CDATA[along with other subsystems. Large Scale Integration (LSI) is the technology that]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-9">has made this possible.//n The CU is responsible for fetching, decoding, and executing instructions. It is the control center for all activities in the system. The CU works in conjunction with a collection of registers that temporarily hold data values for immediate manipulation by the instructions.//n The ALU is part of an internal data pathway that connects to the registers and provides access to other resources of the system such as main memory. The CU issues logic signals that enable registers to output to, or receive information from, this internal data pathway. Data can also be passed through the ALU and combined with other data or manipulated independently to implement arithmetic or logical operations.//n Storage</p>
+<computerCode xml:id="code-0007">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0007">
+<line id="line-0063"> <![CDATA[Main memory is generally called RAM (Random Access Memory). Most RAM is]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-10">volatile, meaning it requires the continual consumption of power to retain its data.</p>
+<p id="para-11">RAM is used to hold the instructions of a program as well as the data that is being manipulated by the program. Most computer systems also include ROM (Read Only Memory). ROM is also RAM, but retains its contents even when no power is applied to the system. ROM memory makes it possible for computer systems to start up without operator intervention, since the initial instructions to be executed are available directly from ROM as soon as power is applied to the system.//n Secondary storage is furnished by disk drives or other forms of nonvolatile storage. In general, access to secondary storage is slower and is often not random.</p>
+<p id="para-12">The term random access refers to the order in which information can be efficiently accessed. In particular, a device is called random access if the time to access information does not depend on the order in which the information is accessed.</p>
+<p id="para-13">RAM devices can access the contents of any memory location in the same amount of time. Data in RAM can be accessed in any order without incurring a time penalty. Tape drives are clearly not random access. They are a classic example of a sequential access storage device, functioning efficiently only when reading/ writing a stream of bytes from/to the tape as it moves past the read/write head.</p>
+</page>
+<page id="page-4">
+<p id="para-14">Disk drives are not technically random access either, but an index to the stored contents allows very fast access to any point in storage and creates an almost random access structure.//n Secondary storage is typically used to hold programs and data needed by programs so it can be accessed without operator intervention when</p>
+<computerCode xml:id="code-0008">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0008">
+<line id="line-0086"> <![CDATA[needed. Secondary storage capacity usually is much greater than main memory;]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-15">the increased capacity at low cost justifies the penalty of slower access.//n Input and Output I/O devices vary widely depending on the type of computer system. Most personal computers support video and audio output, and keyboard and mouse input. Other systems may implement I/O in the form of digital control signals to operate external devices, or analog signals representing the state of an attached sensor.//n At the processor level, I/O is generally very primitive. The most basic I/O capability is achieved through the execution of an instruction that causes a signal</p>
+<computerCode xml:id="code-0009">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0009">
+<line id="line-0095"> <![CDATA[to be asserted outside the scope of the processor&apos;s major components (CPU]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-16">and main memory), or to capture an external signal asserted by an external device or subsystem. The simplest output instruction would assert a binary value on one</p>
+<computerCode xml:id="code-0010">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0010">
+<line id="line-0098"> <![CDATA[of the connections external to the processor; the simplest input operation would]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-17">set a bit inside the processor to capture the current value of some external connection.//n Each processor has its own specific I/O conventions and instructions. Some computer systems include more advanced I/O capabilities at the system level (unifying the processor and the I/O circuitry associated with standard devices immediately surrounding the processor). This provides richer I/O capabilities at the cost of specialized hardware.//n When studying the characteristics of a single processor, I/O is a fairly primitive feature. It is common to discuss I/O in terms of ports on which the processor asserts or reads logical signals of external devices. Ports can connect to internal devices located on the same chip as the processor, or connect to pins, as shown in Figure 1.2, that can be connected to external devices.//n I/O can be parallel (multiple binary signals asserted/read simultaneously on a collection of pins) or utilize a single pin for one bit of data or a stream of bits over time. Output, at this level of detail, is accomplished by asserting a logic signal on a</p>
+<computerCode xml:id="code-0011">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0011">
+<line id="line-0114"> <![CDATA[port/pin and allowing an external device to respond to that signal; input is]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-5">
+<p id="para-18">accomplished by copying a signal on an input port/pin into a register, or utilizing its value in some way to control processing.//n Some computer systems implement variations on this basic I/O technique. For example, memory mapped I/O allows indirect control of I/O devices by simply reading from or writing to specific memory addresses.//n FIGURE 1.2 A surface-mount microprocessor showing the pins that can form connections to external components.</p>
+<p id="para-19">The hardware translates these actions to device communication protocols. Some</p>
+<computerCode xml:id="code-0012">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0012">
+<line id="line-0124"> <![CDATA[systems support Direct Memory Access (DMA) in which I/O devices are allowed]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-20">to access memory independently of the processor. Memory locations are used for communications with the device.//n CLASSIFICATION OF PROCESSORS <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>_ CISC versus RISC Processors have historically been classified as either Complex Instruction Set</p>
+<computerCode xml:id="code-0013">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0013">
+<line id="line-0130"> <![CDATA[Computer (CISC) or Reduced Instruction Set Computer (RISC) architectures.]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-21">The CISC reflects the original development path of processors as capabilities were added over time. RISC is a design philosophy that aims to have a set of instructions that can all be executed very quickly. The term</p>
+<computerCode xml:id="code-0014">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0014">
+<line id="line-0134"> <![CDATA[&quot;reduced&quot; refers to complexity; RISC instructions are generally very]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-22">simple, and therefore easy to implement in hardware. CISC instructions range</p>
+<computerCode xml:id="code-0015">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0015">
+<line id="line-0136"> <![CDATA[from very simple to very complex instructions; some execute quickly, others may]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-6">
+<p id="para-23">take more time to complete their task. Most modern processors sport characteristics of both designs, so classifying a processor as CISC or RISC is seldom clear cut.//n Functionality Processors are also divided according to functionality. Microprocessors are the single-chip version of the earlier computer systems that were made up of many separate hardware components. Early computers had separate circuitry for the CU, ALU, memory, and I/O devices. Microprocessors,</p>
+<computerCode xml:id="code-0016">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0016">
+<line id="line-0145"> <![CDATA[made possible by Very Large Scale Integration (VLSI) technology, combine the]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-24">CU and ALU on a single chip. Microprocessors are the basic component of current personal computers. They are part of a larger circuit board that integrates their computing power with various I/O processing modules (video, audio, memory, etc.). Communication between the processor and these devices takes place over high-speed data pathways called busses.//n Microcontrollers are designed for embedded applications. They include the processing power of a microprocessor but also integrate specific I/O devices and functionality on a single chip. Many include a limited amount of RAM, ROM, and serial or parallel I/O capabilities. Pins on the microcontroller chip are often used to directly control or accept input from external devices. Figure 1.3 shows a microcontroller plugged into a socket of a development board.//n FIG U RE 1.3 The Atmel ATmegal6 microcontroller.</p>
+</page>
+<page id="page-7">
+<p id="para-25">Architecture There is one additional classification of processors that is related to how programs and data are organized in memory and accessed by the processor. When the EDVAC computer was developed at the University of Pennsylvania under the direction of John von Neumann, it incorporated the idea of storing program instructions in the same physical memory as the data to be processed. Both instructions and data were brought from memory into the processor using the same address and data buses. This organization is commonly called the von Neumann Architecture, Princeton Architecture, or more commonly, the Stored Program Computer. The CU alternates between fetching instructions and fetching or storing data.//n In an alternative system architecture, instructions are stored apart from data, using different data pathways and storage for each. This is called the Harvard Architecture, deriving its name from the Mark I relay-based computer developed at Harvard. Mark I programs were encoded as a sequence of machine instructions represented by holes punched in a paper tape. The instructions operated on data located in main memory which consisted of electromechanical relays. This design allowed parallel access to instructions and data, implying the potential for increased throughput. Rather than alternating instruction fetching and data access, processors based on the Harvard architecture can fetch and decode the next instruction at the same time as the current instruction is reading or writing data in memory.//n NUMERATION SYSTEMS <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>_ A numeration system is a language used to represent numbers. Most of us are comfortable using the decimal or base 10 numeration system. We have spent many years learning to express numbers using this system and developed skill at following paper and pencil algorithms to add, subtract, multiply, and divide numbers through the use of base 10 numerals. Although it is common to call things like 32 and -7 numbers, it is important to notice that these are simply</p>
+<computerCode xml:id="code-0017">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0017">
+<line id="line-0188"> <![CDATA[symbols (or clusters of symbols) representing numbers. In computer science, we]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-26">need to distinguish carefully between numeration systems and numbers. Numbers are an abstract concept that represents the size of a collection (we will temporarily limit ourselves to the natural number system). Numerals and numeration systems are a communication tool used to represent the abstract concept of a number. If we</p>
+<computerCode xml:id="code-0018">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0018">
+<line id="line-0193"> <![CDATA[look at the letters of the word &quot;four,&quot; we can see that they form a]]></line>
+<line id="line-0194"> <![CDATA[collection of a certain size, {&quot;f,&quot; &quot;o,&quot; &quot;u,&quot;]]></line>
+<line id="line-0195"> <![CDATA[V&apos;}. The word &quot;five&quot; is]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-8">
+<computerCode xml:id="code-0019">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0019">
+<line id="line-0196"> <![CDATA[made from letters chosen from an identically sized collection, {&quot;f,&quot;]]></line>
+<line id="line-0197"> <![CDATA[&quot;i,&quot; &quot;v,&quot; &quot;e&quot;}. We can express this number]]></line>
+<line id="line-0198"> <![CDATA[(the size of the collection of letters in each of these words) in a variety of ways,]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-27">including four, 4, quatro, 100, IV, and ||||.//n The numeration system used in a particular situation is dictated by convention and simplicity. Roman numerals are elegant and traditionally used to record the copyright dates of old movies, but they are generally unsuitable for arithmetic calculations. The tally mark system is convenient when one counts a series of events, allowing the count to be easily updated without erasing and rewriting digits, and quickly summarized since the tally marks are visibly grouped in fives.</p>
+<p id="para-28">Grammatical rules require the use of words when writing small numeric values such as seven, while larger numbers such as 12 may be written in the conventional decimal digit format. The rule is more complicated than this however, because five million is preferred over 5,000,000, and if 1024 starts a sentence, it must be written out as one thousand twenty-four, and commas are only used when there are more than 4 digits, as in 32,767. Amounts on checks are written in both decimal numeric form and as a lengthy text phrase, such as one hundred thirteen thousand, four hundred ninety-seven dollars.//n</p>
+<computerCode xml:id="code-0020">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0020">
+<line id="line-0214"> <![CDATA[Decimal (base 10) notation is commonly used by humans to represent numbers]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-29">and to perform calculations, either by hand or with a calculating device. Because of our childhood training, it is the most readily accessible numeration system for expressing numbers. Alternative bases, such as binary, octal, and hexadecimal, are common in the realm of computing because of the nature of the logical signals used to represent data in the low-level processing tasks. In these cases, the binary, octal, or hexadecimal numerals allow immediate comprehension of the bit patterns represented by electrical signals in hardware. The computer scientist should be comfortable using a variety of numeration systems to represent data, choosing the one that best communicates the information in a particular context.//n The Nature of Data Data manipulated by a computer system is always most directly represented in</p>
+<computerCode xml:id="code-0021">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0021">
+<line id="line-0227"> <![CDATA[binary form. At the logic level, every data value is a collection of 0&apos;s and]]></line>
+<line id="line-0228"> <![CDATA[l&apos;s, called bits. The word bit is short for binary digit. This is a convenient]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-9">
+<p id="para-30">way of thinking about the underlying hardware which is largely composed of bistable components that store and output two distinct electrical states, for example, a high or low voltage signal. The outputs of these components are used as inputs to other components in the circuit. The two distinct electrical states are represented by the binary numerals 1 and 0.//n Usually, individual bits are only meaningful as part of a larger group. Common</p>
+<computerCode xml:id="code-0022">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0022">
+<line id="line-0235"> <![CDATA[group sizes are 4 (nybble, also spelled nibble), 8 (byte), 16 (word), 32]]></line>
+<line id="line-0236"> <![CDATA[(doubleword), and 64 (quadword). The meanings of these terms, especially word,]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-31">doubleword, and quadword, have changed over time as the complexity</p>
+<computerCode xml:id="code-0023">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0023">
+<line id="line-0238"> <![CDATA[(capability) of computing systems has increased, and often have different]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-32">meanings in the context of different computer systems. In general, the size of a word is defined by the size of the fundamental computational unit used to process it. In a 64-bit processor world, you may use the term word when referring to a 64-bit data value. It is also common for a word to mean a 32-bit data value. The 16-bit word has its roots in the age of the 8- and 16-bit processors that were popular in the 1980s. It is also fairly consistent with the current usage in the world of many microcontrollers.//n The origin of the term byte is not clearly known, however it seems that it was originally spelled bite and represented the number of bits in a character code ... a</p>
+<computerCode xml:id="code-0024">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0024">
+<line id="line-0248"> <![CDATA[reasonable number to manage in one &quot;bite.&quot; The spelling was changed]]></line>
+<line id="line-0249"> <![CDATA[at some point, presumably to avoid confusion if the trailing &quot;e&quot; were]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-33">to be omitted. The term nybble is also a play on the word byte, indicating a small byte, specifically, half of a byte.//n The contents of a byte may need to be viewed as a collection of independent bits, perhaps indicating whether individual sensors attached to the system are registering as on or off. Or, the meaning of the byte may require that all 8 bits be considered as a unit, perhaps representing one of 256 different characters. The bit pattern might represent an integer value, signed or unsigned. Or, a group of bits could represent a machine language instruction or contain address information.//n Since the common ingredient in all of these representations is the underlying</p>
+<computerCode xml:id="code-0025">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0025">
+<line id="line-0259"> <![CDATA[collection of bits, for communication purposes (human to human), we need a way]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-34">to represent any particular bit pattern. It is convenient to allow the bits to represent a number. That is, to interpret the bits as a binary numeral. When the number of bits gets large, we have the option of switching to a different numeration base.</p>
+<computerCode xml:id="code-0026">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0026">
+<line id="line-0263"> <![CDATA[Common bases used to represent bit patterns in their raw form are 2 (binary), 8]]></line>
+<line id="line-0264"> <![CDATA[(octal), and 16 (hexadecimal). Binary representation is simplest way to express a]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-10">
+<p id="para-35">bit pattern, directly representing each individual bit. However, it is somewhat inefficient for large numbers of bits. In such cases, octal and hexadecimal numerals provide an advantage, without making it too difficult to visualize the bits behind the digits of these numerals.//n Decimal ...</p>
+<p id="para-36">Before continuing with the representation of bytes and other sized groups of bits, it is important to review how the positional numeration system works. Base 10</p>
+<computerCode xml:id="code-0027">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0027">
+<line id="line-0272"> <![CDATA[numerals are composed of a sequence of digits (0-9). Each is a numeral]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-37">representing one of the numbers zero through nine. The order of the digits is</p>
+<computerCode xml:id="code-0028">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0028">
+<line id="line-0274"> <![CDATA[important as each digit&apos;s position in the sequence implies a certain place]]></line>
+<line id="line-0275"> <![CDATA[value (23 is not the same as 32). This so-called positional notation is directly]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-38">connected with the expanded form, or polynomial representation, of numbers. The</p>
+<computerCode xml:id="code-0029">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0029">
+<line id="line-0277"> <![CDATA[decimal numeral 3087 is simply a shorthand notation for the polynomial p(x) =]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-39">3<b>x3 + 0</b>x2 + 8<b></b>1 + 7 evaluated with x = 10. The digits correspond to the coefficients of the polynomial, and have the associated place value of xk when in</p>
+<computerCode xml:id="code-0030">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0030">
+<line id="line-0280"> <![CDATA[position k (positions are numbered from the right, starting with zero). The variable]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-40">in the polynomial, x, is called the base or radix of the numeral. If this were a base 16 numeral, we would evaluate the polynomial at x = 16. The coefficients of a base b polynomial are restricted to the digits 0 through b-1. This guarantees a one-to-one correspondence between numerals in a given base and the numbers they represent.//n</p>
+<computerCode xml:id="code-0031">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0031">
+<line id="line-0286"> <![CDATA[The positions of the digits are numbered from the right (least significant digit)]]></line>
+<line id="line-0287"> <![CDATA[starting with 0. The place values for the digits in 3087 (base 10) are then one, ten,]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-41">one hundred, and one thousand. The digit 7 is in position 0 having a place value of</p>
+<computerCode xml:id="code-0032">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0032">
+<line id="line-0289"> <![CDATA[10 or 1; the digit 3 is in position 3, having a place value of 103.//n]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-42">Returning to the representation of groups of bits, we will first focus on byte-sized groups. The 8 bits of a byte can be arranged in 256 distinct binary patterns. When we interpret the bits of a byte as a binary numeral, we form a natural correspondence between bytes and numbers. For example, the byte 10010010 is associated with the following base two positional polynomial:</p>
+<computerCode xml:id="code-0033">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0033">
+<line id="line-0295"> <![CDATA[P (2) = 1*27 + 0*26 + 0*25 + 1*24 + 0*23 + 0*22 + 1*21+ 0*2.//n]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-43">This polynomial is expressed and evaluated in our common base 10 notation,</p>
+<computerCode xml:id="code-0034">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0034">
+<line id="line-0297"> <![CDATA[and in this case evaluates to 146 (one hundred forty-six). Thus we see a natural]]></line>
+<line id="line-0298"> <![CDATA[correspondence between a byte (a group of 8 bits) and a number.//n]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-11">
+<p id="para-44">There is no reason the place values have to be assigned as shown above, increasing in importance from right to left fashion. We treated the leftmost bit as the most significant, giving it a place value of 128. The choice to make the leftmost bit the most significant simply corresponds to our common left-right convention used in positional notation. Of course, the bits in a byte are not found in any particular spatial arrangement in memory or inside a</p>
+<computerCode xml:id="code-0035">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0035">
+<line id="line-0305"> <![CDATA[processor, so any external representation of a byte&apos;s value is simply a]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-45">notational convenience to describe how data is stored and manipulated by the computer system.//n Even though the binary numerals 0 and 00000000 are numerically equivalent, it is sometimes important to represent data in a form that implies how many bits are involved as well as the bit values. It is also important to indicate the base used</p>
+<computerCode xml:id="code-0036">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0036">
+<line id="line-0311"> <![CDATA[in the representation. The string of 8 0&apos;s could represent a byte (binary) or a]]></line>
+<line id="line-0312"> <![CDATA[32-bit word (assuming the 0&apos;s were hexadecimal digits). It is sometimes]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-46">necessary to use a prefix or suffix to clarify the representation used.</p>
+<p id="para-47">Binary data is often represented with a 0b or % prefix, or b suffix.</p>
+<p id="para-48">Hexadecimal data is usually specified with a Ox or $ prefix, or a suffix such as h. In the C programming language, hexadecimal numerals are written with a leading Ox.</p>
+<computerCode xml:id="code-0037">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0037">
+<line id="line-0318"> <![CDATA[ Octal data is often specified with a 0 (zero) or Oo (zero-oh) prefix or o]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-49">suffix, however the similarity of o to 0 makes the latter conventions rather confusing. In C, any number written with a leading 0 is considered octal.</p>
+<p id="para-50">Base 10 numerals are usually written with no special prefix or suffix.//n Of course, a numeric subscript could also be used to specify the radix of the representation, as in 10012 or 3728 or 4C16, but this is cumbersome when writing</p>
+<computerCode xml:id="code-0038">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0038">
+<line id="line-0324"> <![CDATA[programs (plain text editors do not easily accommodate subscripts). There would]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-51">also have to be an agreement that the subscripts be written in base 10 (or some other fixed base). Later, we will examine the notational conventions imposed by the assembler when representing numbers or bit patterns in assembly language programs.//n It is sometimes important to be able to refer to specific positions within a group of bits. There are several competing conventions, but the most common follows the positional numeration convention, assigning the exponent in the polynomial as the position number of its coefficient. Thus, in the binary numeral, ObOOOOlOOO, the 1 is in position 3 since it corresponds to the term with 23 in</p>
+<computerCode xml:id="code-0039">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0039">
+<line id="line-0334"> <![CDATA[the polynomial. In a word (16-bit), the positions would be numbered 15,14,..., 0,]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-12">
+<p id="para-52">starting from the left. In a hexadecimal representation, each hex digit represents a nybble, and each nybble is a coefficient in the base 16 polynomial. So, in the hexadecimal numeral, 0xC325, C is in position 3 and 5 is in position 0. The C represents the nybble</p>
+<computerCode xml:id="code-0040">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0040">
+<line id="line-0339"> <![CDATA[twelve (1010) and has place value 163; 5 represents the nybble five (0101) and has]]></line>
+<line id="line-0340"> <![CDATA[place value 1 (16). It is customary to number bytes in a word in the same way.]]></line>
+<line id="line-0341"> <![CDATA[This convention would correspond to the exponents of a base 256 polynomial; the]]></line>
+<line id="line-0342"> <![CDATA[least-significant byte, 0x25 (rightmost in the word 0xC325), is called byte 0.//n]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-53">Our discussion of data representation has focused on an external representation</p>
+<computerCode xml:id="code-0041">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0041">
+<line id="line-0344"> <![CDATA[(written) of values stored in a bit, nybble, byte, word, and so on. When]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-54">information is stored in memory, the order of bits, nibbles, and so on, can be rearranged according to the specific encoding scheme being used. When we store a word value, such as $1234, we will need to use two bytes of storage. These bytes are usually located in adjacent memory locations, but the order of the bytes may</p>
+<computerCode xml:id="code-0042">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0042">
+<line id="line-0349"> <![CDATA[vary. The more significant byte ($12) may be stored first, or last. These two orders]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-55">for multibyte numeric data are referred to as big-endian and little-endian, respectively. The terms refer to the fictional debate between the citizens of Lilliput</p>
+<computerCode xml:id="code-0043">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0043">
+<line id="line-0352"> <![CDATA[and Blefuscu in Gulliver&apos;s Travels as to whether the soft-boiled egg was to]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-56">be cracked on the little end or the small end.//n</p>
+<computerCode xml:id="code-0044">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0044">
+<line id="line-0354"> <![CDATA[We write our decimal numerals in big-endian format. The &quot;big&quot;]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-57">end of the number comes first, followed by the less significant digits. When</p>
+<computerCode xml:id="code-0045">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0045">
+<line id="line-0356"> <![CDATA[arranging the bytes of a 16-bit (or longer) representation of a number, you place]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-58">the bytes in most significant to least significant order (left to right, or low address to high address) if you are a big-endian. If you subscribe to the little-endian philosophy, you list the bytes in the opposite direction.//n Conversions When discussing the low-level details of data representations, octal and hexadecimal representations are often preferred over binary as they are more compact and there is a simple conversion between these representations. Octal is compelling since it uses only the digits 0-7, requiring no additional symbols and can be typed on a conventional numeric keypad. But, it is awkward because a sequence of three octal digits can represent nine bits, and a nine-bit container is not very common in computing.//n Hexadecimal numerals require 16 distinct symbols representing the numbers zero through 15. In this system, the usual 10 decimal digits represent the values</p>
+<computerCode xml:id="code-0046">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0046">
+<line id="line-0370"> <![CDATA[zero through nine; a-f (or A-F) are used to represent the digit values 10 through 15.]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-13">
+<p id="para-59">Two hex digits can represent 256 distinct numbers, and hence correspond naturally to the 256 variations possible in a single byte.//n It is also very easy to convert either octal or hexadecimal to binary. The simplicity of conversion between binary and octal or hexadecimal is based on patterns in the grouping and the fact that 8 and 16 are powers of two.</p>
+<p id="para-60">Consider the binary value OblOOlOOlO used earlier. The expanded form can be regrouped as a polynomial in powers of 8 or 16, without changing the bits of the original expression.//n OblOOlOOlO = 1<b>27 + 0</b>26 + 0<b>25 + 1</b>24 + 0<b>23 + 0</b>22 + 1<b>21 + 0</b>2</p>
+<computerCode xml:id="code-0047">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0047">
+<line id="line-0380"> <![CDATA[= (1*21 + 0*2) *26 + (0*22 + 1*21 + 0*2) *23 + (0*22 + 1*2X + 0*2)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-61">*2</p>
+<computerCode xml:id="code-0048">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0048">
+<line id="line-0382"> <![CDATA[= (1*21+ 0*2) *82 + (0*22 + 1*21 + 0*2) *81 + (0*22 + 1*21 + 0*2) *8]]></line>
+<line id="line-0383"> <![CDATA[= (OblO) *82 + (ObOlO) *81 + (ObOlO) *8]]></line>
+<line id="line-0384"> <![CDATA[=(2) *82+ (2) *81 + (2) *8]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-62">=0222 or 0o222 or 222o</p>
+<computerCode xml:id="code-0049">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0049">
+<line id="line-0386"> <![CDATA[*24 + (0*23 + 0*22 +  + 0*2) *2 *161]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-63">1*2 1</p>
+<computerCode xml:id="code-0050">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0050">
+<line id="line-0388"> <![CDATA[= (1*23 + 0*22 + 0*21 + 1*2)]]></line>
+<line id="line-0389"> <![CDATA[+ (0*23 + 0*22 + 1*21 + 0*2) *16 *16]]></line>
+<line id="line-0390"> <![CDATA[= (1*23 + 0*22 + 0 * 2 1 + 1*2)]]></line>
+<line id="line-0391"> <![CDATA[= (OblOOl) *161 + (ObOOlO)]]></line>
+<line id="line-0392"> <![CDATA[= (9) *161 + (2) *16]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-64">=$92 or 0x92 or 92h Binary to octal conversion is accomplished by grouping the bits in</p>
+<computerCode xml:id="code-0051">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0051">
+<line id="line-0395"> <![CDATA[three&apos;s from right to left. Binary to hexadecimal uses groups of four. Each]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-65">group is converted to the appropriate digit value.//n</p>
+<computerCode xml:id="code-0052">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0052">
+<line id="line-0397"> <![CDATA[ObllOOOlll =&gt; 11 000 111 =&gt; 0o307]]></line>
+<line id="line-0398"> <![CDATA[ObllOOOlll =&gt; 1100 0111 =&gt; 0xC7]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-66">Three bits completely cover the range of the octal digits, 0-7. Four bits cover the range of the hexadecimal digits, 0 through F. Converting back to binary is as easy as expanding each digit to the correct number of bits, remembering to include leading zeros in each group if needed. The binary to octal conversion has the oddity that groups of three do not exactly fill out a byte or word, so the leftmost octal digit can only be a 0-3 for a byte, and a 0-1 for a 16-bit word. This might be seen as an argument to prefer hexa- decimal notation, but octal has held an historic position. Base four numer- als would also allow an easy conversion, but there is little benefit over binary</p>
+<computerCode xml:id="code-0053">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0053">
+<line id="line-0408"> <![CDATA[in using this representation; hexadecimal and octal are more compact.//n]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-67">Conversions to other bases require a little more arithmetic. Although</p>
+<computerCode xml:id="code-0054">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0054">
+<line id="line-0410"> <![CDATA[not required, conversions between bases (other than base 10) often use]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-14">
+<p id="para-68">base 10 as an intermediate form. For paper and pencil conversions, there are two different algorithms that are commonly used, one for converting from base 10, and the other for converting to base 10. Only one of the algorithms is needed, but the calculations will be easier if you choose the algorithm based on the conversion task. Choosing the correct algorithm allows you to do all of the work in</p>
+<computerCode xml:id="code-0055">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0055">
+<line id="line-0416"> <![CDATA[base 10 (our comfort zone).//n]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-69">Repeated Division Algorithm</p>
+<computerCode xml:id="code-0056">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0056">
+<line id="line-0418"> <![CDATA[From base (radix) 10 to base b, use the repeated division algorithm. This]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-70">determines the digits of the equivalent base b numeral by performing repeated divisions by the value of b. Each division yields a quotient (used in the repeated step) and a remainder. Since we divide by b, the remainder is always a legal base b</p>
+<computerCode xml:id="code-0057">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0057">
+<line id="line-0422"> <![CDATA[digit (0 through b-1), and is the next digit in the resulting base b representation.]]></line>
+<line id="line-0423"> <![CDATA[The digits are produced from right (least significant) to left (most significant).]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-71">Leading zeros may be added if required for your particular application.//n</p>
+<computerCode xml:id="code-0058">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0058">
+<line id="line-0425"> <![CDATA[Example: Convert 232 (Base 10) to Base Three]]></line>
+<line id="line-0426"> <![CDATA[232 / 3 = 77 r 1 (rightmost digit of the base 3 numeral is 1) 77 / 3 =25]]></line>
+<line id="line-0427"> <![CDATA[r 2 (second digit, with place value 31) 25 / 3 = 8 r 1 8 / 3 = 2  r  2]]></line>
+<line id="line-0428"> <![CDATA[2 / 3 = 0  r 2 (stop  continuing would generate leading zeros)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-72">23210 = 221213 Polynomial Evaluation Algorithm Converting from radix b to radix 10 uses the polynomial evaluation algorithm.</p>
+<p id="para-73">This is as simple as evaluating a polynomial. The base b numeral represents a polynomial in powers of b, so if we write it out in base 10 notation, and carry out the indicated operations, we can determine the decimal value.//n Example: Convert 0o37602 to Decimal 0o37602 = 3<b>84 + 7</b>83 + 6<b>82 + 0</b>81 + 2*80 = 16258</p>
+<computerCode xml:id="code-0059">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0059">
+<line id="line-0438"> <![CDATA[Horner&apos;s Algorithm]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-15">
+<p id="para-74">Evaluating polynomials is a common arithmetic task, and various algorithms have been devised to do this efficiently. One fundamentally</p>
+<computerCode xml:id="code-0060">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0060">
+<line id="line-0441"> <![CDATA[important algorithm that has direct application here is known as Horner&apos;s]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-75">Rule, named after William George Horner who formalized the method in 1819.</p>
+<computerCode xml:id="code-0061">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0061">
+<line id="line-0443"> <![CDATA[Horner&apos;s Rule minimizes the number of additions and multiplications]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-76">required to evaluate a polynomial, and are easily implemented using an iterative algorithm. If base 10 notation is used, and computations are performed in base 10, this algorithm can be used to convert from base b to base 10.//n</p>
+<computerCode xml:id="code-0062">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0062">
+<line id="line-0447"> <![CDATA[Horner&apos;s Rule is developed from a factored form of the positional poly-]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-77">nomial. For example, consider the hexadecimal numeral 0x3CF which can be expressed as a polynomial with coefficients 3, C, and F, evaluated at x = 16 (the radix).//n</p>
+<computerCode xml:id="code-0063">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0063">
+<line id="line-0451"> <![CDATA[p(x) = 3 *x2 + C*x1 +]]></line>
+<line id="line-0452"> <![CDATA[F = x* (3X1 + C)]]></line>
+<line id="line-0453"> <![CDATA[+ F = x*(x*(3) +]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-78">C) + F</p>
+<computerCode xml:id="code-0064">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0064">
+<line id="line-0455"> <![CDATA[The last expression (resulting from Horner&apos;s factorization) is evaluated]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-79">from the inside out. Notice that the innermost part of the expression consists of the</p>
+<computerCode xml:id="code-0065">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0065">
+<line id="line-0457"> <![CDATA[most significant digit (leftmost) of the original numeral. We start with the most]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-80">significant digit as the initial value of an accumulator (where the result will be accumulated). While there are more digits, we multiply by the value of x (the radix) and add the value of the next digit.//n</p>
+<computerCode xml:id="code-0066">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0066">
+<line id="line-0461"> <![CDATA[Example: Compute p(16) Using Base 10 Notation to Convert 0x3CF to Base 10]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-81">First digit is 3 Acc is set to 3</p>
+<computerCode xml:id="code-0067">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0067">
+<line id="line-0464"> <![CDATA[Next digit is C (12)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-82">Acc is set to Acc<b>16 + digit = 3</b>16 + 12 = 60</p>
+<computerCode xml:id="code-0068">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0068">
+<line id="line-0466"> <![CDATA[Next digit is F (15)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-83">Acc is set to Acc<b>16 + digit = 60</b>16 + 15 = 975 Result is 975 Since we carried out the computations in base 10, we see the result in base 10 notation. However, if you do all of the work in base b, you get the base b representation. Thus, this algorithm will suffice to convert any base to any other</p>
+<computerCode xml:id="code-0069">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0069">
+<line id="line-0472"> <![CDATA[base (as long as you can work in the destination base numeration system). Note]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-84">that processors usually do binary arithmetic in binary representations utilizing the</p>
+<computerCode xml:id="code-0070">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0070">
+<line id="line-0474"> <![CDATA[processor&apos;s internal numeric processing standards, so implementing]]></line>
+<line id="line-0475"> <![CDATA[Horner&apos;s Rule in a looping structure will allow any stream of digits]]></line>
+<line id="line-0476"> <![CDATA[representing a number in any base to be converted to the processor&apos;s native]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-16">
+<p id="para-85">internal representation of an integer. All that is needed is the ability to express the digits in binary, multiply by the base of the original numeral, and add two numbers.//n Here is the same conversion, but carried out in base two notation. Since everything will be written in binary, the Ob prefix will be omitted.//n</p>
+<computerCode xml:id="code-0071">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0071">
+<line id="line-0483"> <![CDATA[Example: Compute p(16) in the Binary Numeration System to]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-86">Convert 0x3CF to Base Two</p>
+<computerCode xml:id="code-0072">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0072">
+<line id="line-0485"> <![CDATA[First digit is 3 (11)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-87">Acc is set to 11</p>
+<computerCode xml:id="code-0073">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0073">
+<line id="line-0487"> <![CDATA[Next digit is C (1100)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-88">Acc is set to Acc<b>10000+digit=11</b>10000+1100 = 110000 + 1100 = 111100</p>
+<computerCode xml:id="code-0074">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0074">
+<line id="line-0490"> <![CDATA[Next digit is F (1111)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-89">Acc is set to Acc<b>10000 + digit = 111100</b>10000 + 1111 =  1 1 1 1 0 0 0 0 0 0  +  1 1 1 1  =  1 1 1 1 0 0 1 1 1 1</p>
+<computerCode xml:id="code-0075">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0075">
+<line id="line-0493"> <![CDATA[Result is 1111001111 (base two), which in hexadecimal is 0x3CF!]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-90">Thus, one simple algorithm can be used to convert a numeral expressed as a sequence of base b1 digits to any other base b2. Simply write the numeral in expanded form, as a polynomial, using only base b2 numeration. Then evaluate the</p>
+<computerCode xml:id="code-0076">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0076">
+<line id="line-0497"> <![CDATA[polynomial at x = bv preferably using Horner&apos;s Rule and doing all of the]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-91">computations in base b2. You can see why this works well on paper to convert to</p>
+<computerCode xml:id="code-0077">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0077">
+<line id="line-0499"> <![CDATA[base 10 (all of the work is done in our comfort zonebase 10). If you are equally]]></line>
+<line id="line-0500"> <![CDATA[talented calculating in any base, you can use Horner&apos;s Rule to convert]]></line>
+</lineatedText>
+</computerCode>
+</page>
+<page id="page-17">
+<p id="para-92">directly between any two bases.//n Incidentally, the first algorithm, repeated division, can be used in other bases as well. To convert from base b1 to b2 you repeatedly divide by b2. If you write everything in base b1 it all works! Of course, when bl is base 10, the work is fairly easy. When you write a program to perform these calculations, all of the work is done inside the processor, using an internal representation of the numbers. This is natural for the processor, and allows conversion from its internal form to an external, easily read format, such as decimal, hexadecimal, octal, or binary. We will use both of these algorithms later to perform fundamentally important I/O translations.//n BOOLEAN DATA <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i> A byte can represent many things. Above, we treated the bits as the digits of a binary numeral. This is the common way to encode unsigned integers in a byte. Of course, the range of numbers that can be represented according to this scheme is limited allowing only numbers between 0 and 255 inclusive. Boolean data is another common data type. It is the foundation of the conditional and repetition control structures. In high-level languages, a byte or word is often used to encode Boolean data, even though it is wasteful in terms of space.//n There are exactly two Boolean values, True, and False. Only a single bit is required to represent these two values. Usually, 1 represents True, and 0 represents False. Some programming languages provide support for the Boolean data type, but often utilize a word to represent Boolean information (all zeros for</p>
+<computerCode xml:id="code-0078">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0078">
+<line id="line-0525"> <![CDATA[False, and some other value, possibly all l&apos;s, for True). The space wasted]]></line>
+<line id="line-0526"> <![CDATA[(8,16, or more bits to represent only two distinct values) is usually compensated]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-93">for in speed and simplicity of access.//n Microcontrollers commonly process single bit data, and may provide support for efficient processing of individual bits of a byte. In this case, Boolean data for</p>
+<computerCode xml:id="code-0079">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0079">
+<line id="line-0530"> <![CDATA[one or more purposes can be grouped into bytes; the individual bits of the byte can]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-94">be tested and modified by special bit- oriented instructions. This allows compact representation of Boolean information without a sacrifice of speed. Most general purpose processors do not include such specialized instructions.//n The circuits that comprise ALUs and the CU, and all other parts of the digital computer system, ultimately perform Boolean operations. The fundamental Boolean operations are NOT, AND, and OR. A few additional operations, such as NAND, NOR, and XOR, are also realized in common logic circuits. Machine languages usually include instructions to perform some of these simple Boolean operations on the bits found in bytes or words.//n Boolean Operations</p>
+<computerCode xml:id="code-0080">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0080">
+<line id="line-0541"> <![CDATA[The NOT operation is a unary (one operand) operation that simply reverses a]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-95">Boolean value. In the context of data represented in a computer, this is called</p>
+<computerCode xml:id="code-0081">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0081">
+<line id="line-0543"> <![CDATA[&quot;flipping a bit.&quot; Symbolically, the NOT operation may be defined by]]></line>
+</lineatedText>
+</computerCode>
+<table id="table-0" style="border-collapse: collapse; width: 100%; border: 1px solid black;"><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1.1</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">NOT</td><td style="border: 1px solid black; padding: 8px;">a</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">1</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">0</td></tr></table>
+</page>
+<page id="page-18">
+<table id="table-0" style="border-collapse: collapse; width: 100%; border: 1px solid black;"><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">b</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">ANDb</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">0</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">0</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">0</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">bit</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">container,</td><td style="border: 1px solid black; padding: 8px;">performing</td><td style="border: 1px solid black; padding: 8px;">8</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">16</td><td style="border: 1px solid black; padding: 8px;">(or</td><td style="border: 1px solid black; padding: 8px;">more)</td><td style="border: 1px solid black; padding: 8px;">operations</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">parallel.</td><td style="border: 1px solid black; padding: 8px;">This</td><td style="border: 1px solid black; padding: 8px;">is</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">sometimes</td><td style="border: 1px solid black; padding: 8px;">called</td><td style="border: 1px solid black; padding: 8px;">complementing</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">bits.</td><td style="border: 1px solid black; padding: 8px;">High-level</td><td style="border: 1px solid black; padding: 8px;">languages</td><td style="border: 1px solid black; padding: 8px;">often</td><td style="border: 1px solid black; padding: 8px;">provide</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">operators</td><td style="border: 1px solid black; padding: 8px;">that</td><td style="border: 1px solid black; padding: 8px;">correspond</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">these</td><td style="border: 1px solid black; padding: 8px;">bit-wise</td><td style="border: 1px solid black; padding: 8px;">instructions.</td><td style="border: 1px solid black; padding: 8px;">C,</td><td style="border: 1px solid black; padding: 8px;">for</td><td style="border: 1px solid black; padding: 8px;">example</td><td style="border: 1px solid black; padding: 8px;">includes</td><td style="border: 1px solid black; padding: 8px;">a</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">bitwise</td><td style="border: 1px solid black; padding: 8px;">NOT,</td><td style="border: 1px solid black; padding: 8px;">called</td><td style="border: 1px solid black; padding: 8px;">complement.</td><td style="border: 1px solid black; padding: 8px;">The</td><td style="border: 1px solid black; padding: 8px;">operator</td><td style="border: 1px solid black; padding: 8px;">symbol</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">~</td><td style="border: 1px solid black; padding: 8px;">(tilde)</td><td style="border: 1px solid black; padding: 8px;">and</td><td style="border: 1px solid black; padding: 8px;">this</td><td style="border: 1px solid black; padding: 8px;">flips</td><td style="border: 1px solid black; padding: 8px;">all</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">value</td><td style="border: 1px solid black; padding: 8px;">it</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">applied</td><td style="border: 1px solid black; padding: 8px;">to.</td><td style="border: 1px solid black; padding: 8px;">This</td><td style="border: 1px solid black; padding: 8px;">should</td><td style="border: 1px solid black; padding: 8px;">not</td><td style="border: 1px solid black; padding: 8px;">be</td><td style="border: 1px solid black; padding: 8px;">confused</td><td style="border: 1px solid black; padding: 8px;">with</td><td style="border: 1px solid black; padding: 8px;">C&apos;s</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">logical</td><td style="border: 1px solid black; padding: 8px;">operator,</td><td style="border: 1px solid black; padding: 8px;">!,</td><td style="border: 1px solid black; padding: 8px;">which</td><td style="border: 1px solid black; padding: 8px;">negates</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">logical</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">value.//n</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">The</td><td style="border: 1px solid black; padding: 8px;">AND</td><td style="border: 1px solid black; padding: 8px;">operation</td><td style="border: 1px solid black; padding: 8px;">shown</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">Table</td><td style="border: 1px solid black; padding: 8px;">1.2</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">binary</td><td style="border: 1px solid black; padding: 8px;">operation</td><td style="border: 1px solid black; padding: 8px;">(two</td><td style="border: 1px solid black; padding: 8px;">operands).</td><td style="border: 1px solid black; padding: 8px;">It</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">combines</td><td style="border: 1px solid black; padding: 8px;">its</td><td style="border: 1px solid black; padding: 8px;">two</td><td style="border: 1px solid black; padding: 8px;">operands</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">form</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">single</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">value</td><td style="border: 1px solid black; padding: 8px;">such</td><td style="border: 1px solid black; padding: 8px;">that</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">result</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">1</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">only</td><td style="border: 1px solid black; padding: 8px;">when</td><td style="border: 1px solid black; padding: 8px;">both</td><td style="border: 1px solid black; padding: 8px;">operands</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">1.</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">Table</td><td style="border: 1px solid black; padding: 8px;">1.3</td><td style="border: 1px solid black; padding: 8px;">defines</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">OR</td><td style="border: 1px solid black; padding: 8px;">operation</td><td style="border: 1px solid black; padding: 8px;">which</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">also</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">binary</td><td style="border: 1px solid black; padding: 8px;">operation.</td><td style="border: 1px solid black; padding: 8px;">Its</td><td style="border: 1px solid black; padding: 8px;">result</td><td style="border: 1px solid black; padding: 8px;">is</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">when</td><td style="border: 1px solid black; padding: 8px;">either</td><td style="border: 1px solid black; padding: 8px;">operand</td><td style="border: 1px solid black; padding: 8px;">(or</td><td style="border: 1px solid black; padding: 8px;">both)</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">1.</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">The</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">(exclusive-or)</td><td style="border: 1px solid black; padding: 8px;">operation</td><td style="border: 1px solid black; padding: 8px;">provides</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">result</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">only</td><td style="border: 1px solid black; padding: 8px;">when</td><td style="border: 1px solid black; padding: 8px;">either</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">operand,</td><td style="border: 1px solid black; padding: 8px;">but</td><td style="border: 1px solid black; padding: 8px;">not</td><td style="border: 1px solid black; padding: 8px;">both,</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">1.</td><td style="border: 1px solid black; padding: 8px;">Another</td><td style="border: 1px solid black; padding: 8px;">way</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">describe</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">not</td><td style="border: 1px solid black; padding: 8px;">equal:</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">b</td><td style="border: 1px solid black; padding: 8px;">is</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">when</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">and</td><td style="border: 1px solid black; padding: 8px;">b</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">not</td><td style="border: 1px solid black; padding: 8px;">equal.</td><td style="border: 1px solid black; padding: 8px;">Table</td><td style="border: 1px solid black; padding: 8px;">1.4</td><td style="border: 1px solid black; padding: 8px;">defines</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">exclusive-or</td><td style="border: 1px solid black; padding: 8px;">operation.</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">Applications</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">Operations</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">Processors</td><td style="border: 1px solid black; padding: 8px;">include</td><td style="border: 1px solid black; padding: 8px;">logical</td><td style="border: 1px solid black; padding: 8px;">instructions</td><td style="border: 1px solid black; padding: 8px;">that</td><td style="border: 1px solid black; padding: 8px;">perform</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">operations</td><td style="border: 1px solid black; padding: 8px;">on</td><td style="border: 1px solid black; padding: 8px;">all</td><td style="border: 1px solid black; padding: 8px;">of</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">byte</td><td style="border: 1px solid black; padding: 8px;">(word)</td><td style="border: 1px solid black; padding: 8px;">at</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">same</td><td style="border: 1px solid black; padding: 8px;">time.</td><td style="border: 1px solid black; padding: 8px;">By</td><td style="border: 1px solid black; padding: 8px;">careful</td><td style="border: 1px solid black; padding: 8px;">use</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">operations,</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">programs</td><td style="border: 1px solid black; padding: 8px;">can</td><td style="border: 1px solid black; padding: 8px;">access</td><td style="border: 1px solid black; padding: 8px;">individual</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">byte</td><td style="border: 1px solid black; padding: 8px;">(word)</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">determine</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">change</td><td style="border: 1px solid black; padding: 8px;">their</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">value,</td><td style="border: 1px solid black; padding: 8px;">without</td><td style="border: 1px solid black; padding: 8px;">affecting</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">surrounding</td><td style="border: 1px solid black; padding: 8px;">bits.</td><td style="border: 1px solid black; padding: 8px;">These</td><td style="border: 1px solid black; padding: 8px;">techniques</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">necessary</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">when</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">processor</td><td style="border: 1px solid black; padding: 8px;">lacks</td><td style="border: 1px solid black; padding: 8px;">specialized</td><td style="border: 1px solid black; padding: 8px;">bit-oriented</td><td style="border: 1px solid black; padding: 8px;">instructions.</td><td style="border: 1px solid black; padding: 8px;">They</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">also</td><td style="border: 1px solid black; padding: 8px;">used</td><td style="border: 1px solid black; padding: 8px;">to</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">process</td><td style="border: 1px solid black; padding: 8px;">groups</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">within</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">byte</td><td style="border: 1px solid black; padding: 8px;">(word);</td><td style="border: 1px solid black; padding: 8px;">these</td><td style="border: 1px solid black; padding: 8px;">groups</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">sometimes</td><td style="border: 1px solid black; padding: 8px;">called</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">bit-fields.</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">b</td><td style="border: 1px solid black; padding: 8px;">aORb</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">0</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">1</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td></tr></table>
+</page>
+<page id="page-19">
+<table id="table-0" style="border-collapse: collapse; width: 100%; border: 1px solid black;"><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">b</td><td style="border: 1px solid black; padding: 8px;">aXORb</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">0</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">0</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">When</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">byte</td><td style="border: 1px solid black; padding: 8px;">contains</td><td style="border: 1px solid black; padding: 8px;">one</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">more</td><td style="border: 1px solid black; padding: 8px;">bit-fields,</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">operations</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">the</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">tools</td><td style="border: 1px solid black; padding: 8px;">needed</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">isolate</td><td style="border: 1px solid black; padding: 8px;">each</td><td style="border: 1px solid black; padding: 8px;">part</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">byte</td><td style="border: 1px solid black; padding: 8px;">for</td><td style="border: 1px solid black; padding: 8px;">independent</td><td style="border: 1px solid black; padding: 8px;">processing.</td><td style="border: 1px solid black; padding: 8px;">There</td><td style="border: 1px solid black; padding: 8px;">are</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">several</td><td style="border: 1px solid black; padding: 8px;">basic</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">principles</td><td style="border: 1px solid black; padding: 8px;">that</td><td style="border: 1px solid black; padding: 8px;">help</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">understand</td><td style="border: 1px solid black; padding: 8px;">how</td><td style="border: 1px solid black; padding: 8px;">this</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">accomplished.</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">The</td><td style="border: 1px solid black; padding: 8px;">letter</td><td style="border: 1px solid black; padding: 8px;">&quot;a&quot;</td><td style="border: 1px solid black; padding: 8px;">represents</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">bit</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">value.</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">AND</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">;used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">force</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">bit</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">zero</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">AND</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">;used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">exclude</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">from</td><td style="border: 1px solid black; padding: 8px;">certain</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">;operations</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">OR</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">,-used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">exclude</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">from</td><td style="border: 1px solid black; padding: 8px;">certain</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">;operations</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">OR</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">;used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">force</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">bit</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">one</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">;used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">exclude</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">from</td><td style="border: 1px solid black; padding: 8px;">certain</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">;operations</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">NOT</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">;used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">toggle</td><td style="border: 1px solid black; padding: 8px;">(flip,</td><td style="border: 1px solid black; padding: 8px;">invert)</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">bit</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">The</td><td style="border: 1px solid black; padding: 8px;">typical</td><td style="border: 1px solid black; padding: 8px;">machine</td><td style="border: 1px solid black; padding: 8px;">language</td><td style="border: 1px solid black; padding: 8px;">instructions</td><td style="border: 1px solid black; padding: 8px;">that</td><td style="border: 1px solid black; padding: 8px;">perform</td><td style="border: 1px solid black; padding: 8px;">these</td><td style="border: 1px solid black; padding: 8px;">logical</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">operations</td><td style="border: 1px solid black; padding: 8px;">operate</td><td style="border: 1px solid black; padding: 8px;">on</td><td style="border: 1px solid black; padding: 8px;">all</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">byte</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">parallel.</td><td style="border: 1px solid black; padding: 8px;">That</td><td style="border: 1px solid black; padding: 8px;">is,</td><td style="border: 1px solid black; padding: 8px;">they</td><td style="border: 1px solid black; padding: 8px;">perform</td><td style="border: 1px solid black; padding: 8px;">eight</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">independent</td><td style="border: 1px solid black; padding: 8px;">AND,</td><td style="border: 1px solid black; padding: 8px;">OR,</td><td style="border: 1px solid black; padding: 8px;">NOT,</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">operations</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">single</td><td style="border: 1px solid black; padding: 8px;">step.</td><td style="border: 1px solid black; padding: 8px;">These</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">fundamental</td><td style="border: 1px solid black; padding: 8px;">instructions</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">often</td><td style="border: 1px solid black; padding: 8px;">used</td><td style="border: 1px solid black; padding: 8px;">with</td><td style="border: 1px solid black; padding: 8px;">special</td><td style="border: 1px solid black; padding: 8px;">pattern</td><td style="border: 1px solid black; padding: 8px;">bytes,</td><td style="border: 1px solid black; padding: 8px;">called</td><td style="border: 1px solid black; padding: 8px;">bit</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">masks,</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">isolate</td><td style="border: 1px solid black; padding: 8px;">parts</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">byte</td><td style="border: 1px solid black; padding: 8px;">so</td><td style="border: 1px solid black; padding: 8px;">only</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">desired</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">affected.</td><td style="border: 1px solid black; padding: 8px;">To</td><td style="border: 1px solid black; padding: 8px;">properly</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">construct</td><td style="border: 1px solid black; padding: 8px;">these</td><td style="border: 1px solid black; padding: 8px;">masks,</td><td style="border: 1px solid black; padding: 8px;">you</td><td style="border: 1px solid black; padding: 8px;">must</td><td style="border: 1px solid black; padding: 8px;">know</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">fundamental</td><td style="border: 1px solid black; padding: 8px;">properties</td><td style="border: 1px solid black; padding: 8px;">above.</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">To</td><td style="border: 1px solid black; padding: 8px;">apply</td><td style="border: 1px solid black; padding: 8px;">these</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">properties,</td><td style="border: 1px solid black; padding: 8px;">think</td><td style="border: 1px solid black; padding: 8px;">of</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">each</td><td style="border: 1px solid black; padding: 8px;">statement</td><td style="border: 1px solid black; padding: 8px;">as</td><td style="border: 1px solid black; padding: 8px;">a</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">mask</td><td style="border: 1px solid black; padding: 8px;">bit.</td><td style="border: 1px solid black; padding: 8px;">Choosing</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">correct</td><td style="border: 1px solid black; padding: 8px;">mask</td><td style="border: 1px solid black; padding: 8px;">bit</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">get</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">desired</td><td style="border: 1px solid black; padding: 8px;">result</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">key</td><td style="border: 1px solid black; padding: 8px;">to</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">understanding</td><td style="border: 1px solid black; padding: 8px;">how</td><td style="border: 1px solid black; padding: 8px;">Boolean</td><td style="border: 1px solid black; padding: 8px;">operations</td><td style="border: 1px solid black; padding: 8px;">are</td><td style="border: 1px solid black; padding: 8px;">used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">manipulate</td><td style="border: 1px solid black; padding: 8px;">selected</td><td style="border: 1px solid black; padding: 8px;">bits</td><td style="border: 1px solid black; padding: 8px;">in</td><td style="border: 1px solid black; padding: 8px;">a</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">container.</td><td style="border: 1px solid black; padding: 8px;">Note</td><td style="border: 1px solid black; padding: 8px;">that</td><td style="border: 1px solid black; padding: 8px;">AND</td><td style="border: 1px solid black; padding: 8px;">can</td><td style="border: 1px solid black; padding: 8px;">be</td><td style="border: 1px solid black; padding: 8px;">used</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">force</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">0,</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">cause</td><td style="border: 1px solid black; padding: 8px;">no</td><td style="border: 1px solid black; padding: 8px;">change.</td><td style="border: 1px solid black; padding: 8px;">OR</td><td style="border: 1px solid black; padding: 8px;">is</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">useful</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">force</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">1,</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">cause</td><td style="border: 1px solid black; padding: 8px;">no</td><td style="border: 1px solid black; padding: 8px;">change.</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">is</td><td style="border: 1px solid black; padding: 8px;">useful</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">toggle</td><td style="border: 1px solid black; padding: 8px;">or</td><td style="border: 1px solid black; padding: 8px;">flip</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">bit,</td><td style="border: 1px solid black; padding: 8px;">or</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">cause</td><td style="border: 1px solid black; padding: 8px;">no</td><td style="border: 1px solid black; padding: 8px;">change.</td><td style="border: 1px solid black; padding: 8px;">The</td><td style="border: 1px solid black; padding: 8px;">OR</td><td style="border: 1px solid black; padding: 8px;">and</td><td style="border: 1px solid black; padding: 8px;">XOR</td><td style="border: 1px solid black; padding: 8px;">operations</td><td style="border: 1px solid black; padding: 8px;">use</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">1</td><td style="border: 1px solid black; padding: 8px;">mask</td><td style="border: 1px solid black; padding: 8px;">bit</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">SET</td><td style="border: 1px solid black; padding: 8px;">or</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">TOGGLE</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">bit;</td><td style="border: 1px solid black; padding: 8px;">AND</td><td style="border: 1px solid black; padding: 8px;">uses</td><td style="border: 1px solid black; padding: 8px;">the</td><td style="border: 1px solid black; padding: 8px;">0</td><td style="border: 1px solid black; padding: 8px;">mask</td><td style="border: 1px solid black; padding: 8px;">bit</td><td style="border: 1px solid black; padding: 8px;">to</td><td style="border: 1px solid black; padding: 8px;">CLEAR</td><td style="border: 1px solid black; padding: 8px;">a</td><td style="border: 1px solid black; padding: 8px;">bit.</td><td style="border: 1px solid black; padding: 8px;">The</td><td style="border: 1px solid black; padding: 8px;">opposite</td><td style="border: 1px solid black; padding: 8px;">mask</td><td style="border: 1px solid black; padding: 8px;">bit</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">causes</td><td style="border: 1px solid black; padding: 8px;">no</td><td style="border: 1px solid black; padding: 8px;">change.</td></tr></table>
+</page>
+<page id="page-20">
+<p id="para-96">a truth table as shown in Table 1.1.//n In many cases, machine languages provide a NOT instruction that acts on a whole byte or word at one time. The NOT operation is applied to each 20  Some Assembly Required Mask Out, Clear, Zero</p>
+<computerCode xml:id="code-0082">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0082">
+<line id="line-0623"> <![CDATA[The AND operation is often used to mask out (zero or clear) unimportant bits. A]]></line>
+<line id="line-0624"> <![CDATA[specific byte value is selected as a mask; 0s are placed in positions to be cleared]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-97">and Is in positions of importance. Note that the result of an AND with 0 is 0, and</p>
+<computerCode xml:id="code-0083">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0083">
+<line id="line-0626"> <![CDATA[the result of an AND with 1 is just the other operand (identity). Thus the]]></line>
+<line id="line-0627"> <![CDATA[O&apos;s mask out (zero) the unwanted bit positions, while the Is cause no]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-98">change to the important positions. To mask out bits 7-4, use $0F as a mask. To mask out all of the odd positioned bits, use $55 as the mask. To examine just bit 7, use $80 as the mask. Figure 1.4 illustrates the first two of these operations.</p>
+<p id="para-99">Another important use of AND is to clear specific bits, but leave the others unchanged. This is no different from masking out unimportant bits, except that this time the focus is on the bits being cleared, not the ones left unchanged. The</p>
+<computerCode xml:id="code-0084">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0084">
+<line id="line-0634"> <![CDATA[term clear, as in &quot;clear a bit,&quot; means to make it zero. Conversely, the]]></line>
+<line id="line-0635"> <![CDATA[term set, as in &quot;set a bit,&quot; means to make it one. When using AND to]]></line>
+<line id="line-0636"> <![CDATA[clear specific bits, the focus is on the 0 bits of the mask. An AND with O&apos;s]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-100">will clear the bits, while the positions ANDed with 1 will be unchanged. To clear the upper nybble, use mask $0F. To clear bit 7, use mask $7F.</p>
+<p id="para-101">Set and Union The OR operation is used to set specific bits. The 1 bits in a mask will force those positions to 1 when the OR operation is performed. To set bits 4 and 5, use the OR operation with a mask of $30.</p>
+<p id="para-102">Another application of the OR operation is to combine bit-fields from different bytes into a single byte. This is sometimes called union, as the result is a byte with Is in positions where there was a 1 in one operand or the other. As an example, consider two 4-bit values that need to be combined to form a single byte, one value going into the upper nybble (bits Mask Mask FIGURE 1.4 Using a mask with the AND operation to isolate portions of a byte.</p>
+</page>
+<page id="page-21">
+<computerCode xml:id="code-0085">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0085">
+<line id="line-0651"> <![CDATA[7-4) and the other into the lower nybble (bits 3-0). For this to work properly, you]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-103">need to have each value in its own container, already positioned in the correct bit positions. The other bits must be 0. Positioning the bits may require a shift operation that will be examined in the next section. Forcing the unimportant bits to 0 can be accomplished using AND as described above. After all of this preparation, simply OR-ing the bytes will combine them into a single container.</p>
+<p id="para-104">Example The 4-bit value 0b1101 is to be combined with 0b1110, the first will be placed in the</p>
+<computerCode xml:id="code-0086">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0086">
+<line id="line-0659"> <![CDATA[upper nybble (this is done using a shift operation which will be discussed soon).]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-105">Each 4-bit value is in a byte with the opposite nybble cleared. Figure 1.5 illustrates the operation.</p>
+<p id="para-106">ObllOlOOOO /First value in upper nybble, lower nybble clear ObOOOOlllO /Second value in lower nybble, upper nybble clear ObllOllllO /The result of OR-ing the two bytes Toggle</p>
+<computerCode xml:id="code-0087">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0087">
+<line id="line-0666"> <![CDATA[One important function of XOR is to toggle (flip, or invert) selected bits. The]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-107">mask in this case uses Is in positions to be toggled and 0s in positions to be unchanged. Figure 1.6 illustrates the exclusive-or operation with the mask value of $AA which will toggle all of the bits in odd positions.</p>
+<p id="para-108">Another interesting feature of the XOR operation is that if it is applied a second time with the same mask, it will undo the changes. This can be used as a simple encryption technique. The mask is the encryption key. It is used to encrypt</p>
+<computerCode xml:id="code-0088">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0088">
+<line id="line-0673"> <![CDATA[(flip some bits to obscure the original byte value) and to decrypt (flip the bits back]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-109">to restore the original byte) the data.</p>
+<p id="para-110">FIGURE 1.5 Using OR to combine opposite nybbles from two bytes into a single byte.</p>
+</page>
+<page id="page-22">
+<p id="para-111">Toggle mask FIGURE 1.6 Using XOR to flip or toggle the bits selected by Is in the mask byte. Shifting and Rotating Bits Shifting bits is technically not a Boolean or logical operation, but it is a bit-manipulation fundamental to the operation of digital computers. While the Boolean operations described previously are confined to independent column-wise manipulations, the shift operations allow movement of bits between columns or positions. A left shift moves bits to higher bit positions and a right shift moves them to lower bit positions.</p>
+<p id="para-112">The byte $5C, when shifted left is $B8, and when shifted right, is $2E. This is more obvious if the bytes are written in binary notation as shown in Table 1.5.</p>
+<p id="para-113">In these examples, a 0 was brought in to fill the vacated position on the left or right end. The bit that was shifted out of the other end was discarded. Processors provide several shift instructions that vary how the vacated position is filled.</p>
+<p id="para-114">Usually, the bit that is shifted out is stored in a special flag register so it can be further processed by a program.</p>
+<p id="para-115">Another variation on shifting is rotation. In this case, the bit shifted out is circled around to the other end and shifted into the vacated position. A further</p>
+<computerCode xml:id="code-0089">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0089">
+<line id="line-0695"> <![CDATA[variation on this is to rotate through an extra storage location for a single bit; this]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-116">bit is used to fill the vacated position in the rotation, and then replaced by the bit rotated out of the byte.</p>
+<table id="table-0" style="border-collapse: collapse; width: 100%; border: 1px solid black;"><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">Original</td><td style="border: 1px solid black; padding: 8px;">Byte</td><td style="border: 1px solid black; padding: 8px;">Shifted</td><td style="border: 1px solid black; padding: 8px;">Left</td><td style="border: 1px solid black; padding: 8px;">Shifted</td><td style="border: 1px solid black; padding: 8px;">Right</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">$5C</td><td style="border: 1px solid black; padding: 8px;">=</td><td style="border: 1px solid black; padding: 8px;">ObOlOlllOO</td><td style="border: 1px solid black; padding: 8px;">$B8</td><td style="border: 1px solid black; padding: 8px;">=</td><td style="border: 1px solid black; padding: 8px;">0bl0111000</td><td style="border: 1px solid black; padding: 8px;">$2E</td><td style="border: 1px solid black; padding: 8px;">=</td></tr><tr style="border: 1px solid black;"><td style="border: 1px solid black; padding: 8px;">ObOOlOlllO</td></tr></table>
+</page>
+<page id="page-23">
+<p id="para-117">Bit shifting can have numeric significance. If a byte represents an unsigned integer as discussed previously, then a left shift will double its value. Note that doubling always results in an even number, and a left shift always makes the last bit a 0. Binary numerals ending in 0 represent even numbers. Similarly, a right shift halves the numeric value, throwing away any remainder.</p>
+<p id="para-118">One historically important use of the bit shift operation was the implementation</p>
+<computerCode xml:id="code-0090">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0090">
+<line id="line-0709"> <![CDATA[of a &quot;multiply by ten&quot; operation. Multiplication instructions in early]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-119">processors often required special setups and took longer than many other instructions. When repeated multiplication by 10 was needed (remember</p>
+<computerCode xml:id="code-0091">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0091">
+<line id="line-0712"> <![CDATA[Horner&apos;s Rule?), it was often implemented as a shift and add sequence to]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-120">speed up the process. Although most modern processors provide highly efficient multiply hardware that has made this technique obsolete, you may still find this technique useful.</p>
+<p id="para-121">The trick is to break the multiplication by 10 into multiplications by powers of</p>
+<computerCode xml:id="code-0092">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0092">
+<line id="line-0717"> <![CDATA[2 (which are efficiently accomplished with a shift) and to use an add instruction.]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-122">Here is one way to do this.</p>
+<p id="para-123">10a = 2a + 8a</p>
+<computerCode xml:id="code-0093">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0093">
+<line id="line-0720"> <![CDATA[Thus, to calculate 10a, we shift a once (to get 2a), and then shift 2 more times]]></line>
+<line id="line-0721"> <![CDATA[(to get 8a), and we add the results. For example, the byte representing 18 is $12 or]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-124">ObOOOlOOlO. Call this a.</p>
+<computerCode xml:id="code-0094">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0094">
+<line id="line-0723"> <![CDATA[2a = ObOOlOOlOO (obtained by shifting left once)]]></line>
+<line id="line-0724"> <![CDATA[8a = OblOOlOOOO (obtained by shifting left twice more)]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-125">Adding we get 10a= OblOllOlOO which is $B4 or 180. EXERCISES 1. List the five functional units of a typical computer system.</p>
+<p id="para-126">2. Which functional unit of a computer system oversees the fetch-execute cycle?</p>
+<computerCode xml:id="code-0095">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0095">
+<line id="line-0730"> <![CDATA[3. Is main memory (primary storage) typically RAM or ROM?]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-127">Why?</p>
+<p id="para-128">4. What is the fundamental distinction between the instructions in CISC and RISC architectures?</p>
+<p id="para-129">5. How does a microcontroller differ from a microprocessor.</p>
+<p id="para-130">6. What is the major distinction between the von Neumann and Harvard architectures?</p>
+<p id="para-131">7. Is a CDROM drive a random access or serial secondary storage device? Explain your answer. You may need to read about how these drives operate.</p>
+<p id="para-132">8. Is a mouse a serial or parallel input device? You may need to do some research to learn how a mouse communicates with a computer.</p>
+</page>
+<page id="page-24">
+<p id="para-133">9. Is a printer attached to a PC, a serial or parallel output device?</p>
+<p id="para-134">Are all printers the same with respect to this classification?</p>
+<p id="para-135">Explain.</p>
+<p id="para-136">10. Is 10 a numeral or a number? Could this represent the number of eyes most animals have? Could this represent the number of</p>
+<computerCode xml:id="code-0096">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0096">
+<line id="line-0748"> <![CDATA[eyes found in a jumping spider (family Salticidae)? Explain.]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-137">11. How many bits in a byte? In a word? How many nybbles in a doubleword? How many bits in a quadword?</p>
+<p id="para-138">12. Why is hexadecimal notation superior to octal when represent- ing nybbles?</p>
+<p id="para-139">13. In what base is each expression equal to the number of bottles</p>
+<computerCode xml:id="code-0097">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0097">
+<line id="line-0754"> <![CDATA[of root beer on the wall (one hundred)?]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-140">a. 1<b>10000 + 2</b>100 + 1 b. 9*10 + 1 c. 2<b>100 + 4</b>10 + 4 d. 4*100 e. 1<b>100 + 4</b>10 + 4 14. In the numeral 0x4C32CB, what digit is in position 4? What digit has a place value of 4096? If this numeral is translated to</p>
+<computerCode xml:id="code-0098">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0098">
+<line id="line-0762"> <![CDATA[binary, how many l&apos;s will be in the equivalent numeral?]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-141">15. Convert the following base 10 numerals to base two and base 16 using repeated division: 256, 32767, and 51983.</p>
+<p id="para-142">16. Convert the following base five numerals to base 10 using polynomial evaluation: 10,44, and 243.</p>
+<p id="para-143">17. Convert these hexadecimal values to binary in the simplest way possible: 100, 2F, and AC.</p>
+<p id="para-144">18. Convert these octal values to binary and then hexadecimal without first converting to base 10: 377,1037, and 4501.</p>
+<computerCode xml:id="code-0099">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0099">
+<line id="line-0771"> <![CDATA[19. Using Horner&apos;s Rule, show the step-by-step progress of]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-145">converting the base seven numeral 62034 to base 10. Begin</p>
+<computerCode xml:id="code-0100">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0100">
+<line id="line-0773"> <![CDATA[with zero; multiply by 7, add the next digit, and repeat.]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-146">20. Convert these base 15 numerals to base 10 using</p>
+<computerCode xml:id="code-0101">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0101">
+<line id="line-0775"> <![CDATA[Horner&apos;s Rule. Process the digits from left to right.]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-147">9A2,1000, and C07E.</p>
+<computerCode xml:id="code-0102">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0102">
+<line id="line-0777"> <![CDATA[21. Using Horner&apos;s Rule, show the steps to convert 734]]></line>
+<line id="line-0778"> <![CDATA[(base 10) to base four. You will need to show all of your work]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-148">in base four. Remember to convert the digits to base four before adding. You will need to know that 10, in base four, is written 22.</p>
+<p id="para-149">22. Determine the result of performing a bitwise AND operation on this pair of nybbles: OblOll and ObOlOO.</p>
+</page>
+<page id="page-25">
+<p id="para-150">23. Determine the result of performing a bitwise OR operation on 24. Determine the result of performing a bitwise XOR operation on this pair of nybbles: OblOOl and Obi 101.</p>
+<p id="para-151">25. What mask and operation would be used to zero the upper nybble in a byte? To clear the lower nybble of a byte?</p>
+<p id="para-152">26. Give the mask and operation needed to round odd numbers</p>
+<computerCode xml:id="code-0103">
+<lineatedText numberLines="no" space="preserve" id="lntxt-0103">
+<line id="line-0791"> <![CDATA[(represented by the binary value in a byte) down to the next]]></line>
+<line id="line-0792"> <![CDATA[even number (and not alter even numbers). How could you]]></line>
+</lineatedText>
+</computerCode>
+<p id="para-153">round up to the nearest odd number?</p>
+<p id="para-154">27. Shift each byte to the left and tell the result in hexadecimal: $3C, $E9, $FF.</p>
+<p id="para-155">28. What happens if you shift a byte to the right, and then shift it back to the left?</p>
+<p id="para-156">29. Devise a way to multiply a byte by 6 using only shifts and one addition.</p>
+</page>
+</body>
+</html>
